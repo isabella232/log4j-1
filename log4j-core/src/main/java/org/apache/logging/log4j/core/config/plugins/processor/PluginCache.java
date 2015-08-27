@@ -81,7 +81,7 @@ public class PluginCache {
                 for (final Map.Entry<String, PluginEntry> entry : m.entrySet()) {
                     final PluginEntry plugin = entry.getValue();
                     out.writeUTF(plugin.getKey());
-                    out.writeUTF(plugin.getClassName());
+                    out.writeUTF("com.dotcms.repackage." + plugin.getClassName());
                     out.writeUTF(plugin.getName());
                     out.writeBoolean(plugin.isPrintable());
                     out.writeBoolean(plugin.isDefer());
