@@ -15,6 +15,21 @@ The change is on
 org.apache.logging.log4j.core.config.plugins.processor.PluginCache#writeCache()
 ```
 
+Difference on the this branch.
+```
+--- a/log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/processor/PluginCache.java
++++ b/log4j-core/src/main/java/org/apache/logging/log4j/core/config/plugins/processor/PluginCache.java
+@@ -81,7 +81,7 @@ public class PluginCache {
+                 for (final Map.Entry<String, PluginEntry> entry : m.entrySet()) {
+                     final PluginEntry plugin = entry.getValue();
+                     out.writeUTF(plugin.getKey());
+-                    out.writeUTF(plugin.getClassName());
++                    out.writeUTF("com.dotcms.repackage." + plugin.getClassName());
+                     out.writeUTF(plugin.getName());
+                     out.writeBoolean(plugin.isPrintable());
+                     out.writeBoolean(plugin.isDefer());
+```
+
 Basically all it does is to append dotCMS repackage prefix packaging names to the current
 package structure.  Only the core jar is affected by this, all other jars can be taken from
 the oficial binary sources.
