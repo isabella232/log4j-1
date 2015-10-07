@@ -41,7 +41,7 @@ Change into the lastest branch version (2.3 at this moment)
 
 This branch should contain a commit with the change needed for the repackaging process.
 
-Run the following command to obtain the jar needed.
+Run the following command to obtain the jars needed.
 
 ```
 mvn clean package -Dmaven.test.skip=true
@@ -51,7 +51,14 @@ Skipping the tests is needed since the change on the cache file will impact the 
 tests will try to use the cache file to load the plugins but the packages names won't fit
 the existing ones, not until the repackage process is run.
 
-The only jar affected is log4j-core-2.3.jar.  This jar is located under
+The only jars affected are **log4j-core-2.3.jar** and **log4j-web-2.3.jar**.  Those jars are located under
+
 ```
  <repository>/log4j-core/target/
+ ```
+ 
+And
+ 
+ ```
+ <repository>/log4j-web/target/
 ```
